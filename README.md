@@ -4,7 +4,6 @@ Página web que consume los servicisio de la API de productos.
 [API REST](https://api-bsale-server.herokuapp.com/api/v1/products)
 
 ## Tecnologías
----
 *  [Javascript](https://developer.mozilla.org/es/docs/Web/JavaScript)
 * [Bootstrap](https://getbootstrap.com/)
 
