@@ -49,7 +49,8 @@ const main = async() => {
     const { products } = await getProducts()
     createCard(products)
     const btnSearch = document.getElementById('btn-search')
-    btnSearch.addEventListener('click', async() => {
+    btnSearch.addEventListener('click', async(e) => {
+        e.preventDefault()
         const products = await search();
         createCard(products)
     })
