@@ -8,6 +8,11 @@ const getProducts = async(search) => {
     }
 }
 
+const getProductsByCategory = async(category) => {
+    const { data } = await axios.get(`https://api-bsale-server.herokuapp.com/api/v1/products?category=${category}`)
+    return data
+}
+
 
 const getCategories = async() => {
     const { data } = await axios.get(`https://api-bsale-server.herokuapp.com/api/v1/categories`)
@@ -50,7 +55,7 @@ const createNavItem = (items) => {
         const li = document.createElement('li')
         li.classList.add('nav-item')
         li.innerHTML += `
-        <a class="nav-link active" aria-current="page" href="#" id="${element.name}">${element.name}</a>
+        <a class="nav-link active" aria-current="page" href="#" id="${element.name}">${element.name.toUpperCase()}</a>
         `
         categoriesList.appendChild(li)
     })
@@ -78,8 +83,21 @@ const main = async() => {
         const products = await search();
         createCard(products)
     })
+
+    const navbarItems = document.getElementById('categories-list')
+    navbarItems.addEventListener('click', async(e) => {
+        const element = e.target.localName
+        if (element === 'a') {
+            const category = e.target.id
+            const { products } = await getProductsByCategory(category)
+            createCard(products)
+        }
+    })
 }
 
-window.addEventListener('DOMContentLoaded', e => {
+
+
+
+window.addEventListener('DOMContentLoaded', (e) => {
     main()
 })
