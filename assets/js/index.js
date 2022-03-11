@@ -1,11 +1,17 @@
 const getProducts = async(search) => {
     if (search) {
-        const data = await axios.get(`https://api-bsale-server.herokuapp.com/api/v1/products?name=${search}`)
-        return data.data
+        const { data } = await axios.get(`https://api-bsale-server.herokuapp.com/api/v1/products?name=${search}`)
+        return data
     } else {
-        const data = await axios.get(`https://api-bsale-server.herokuapp.com/api/v1/products`)
-        return data.data
+        const { data } = await axios.get(`https://api-bsale-server.herokuapp.com/api/v1/products`)
+        return data
     }
+}
+
+
+const getCategories = async() => {
+    const { data } = await axios.get(`https://api-bsale-server.herokuapp.com/api/v1/categories`)
+    return data
 }
 
 
@@ -37,6 +43,19 @@ const createCard = (products) => {
     })
 }
 
+const createNavItem = (items) => {
+    const categoriesList = document.getElementById('categories-list');
+    categoriesList.innerHTML = '';
+    items.forEach(element => {
+        const li = document.createElement('li')
+        li.classList.add('nav-item')
+        li.innerHTML += `
+        <a class="nav-link active" aria-current="page" href="#" id="${element.name}">${element.name}</a>
+        `
+        categoriesList.appendChild(li)
+    })
+}
+
 
 
 const search = async() => {
@@ -46,9 +65,14 @@ const search = async() => {
 }
 
 const main = async() => {
-    const { products } = await getProducts()
-    createCard(products)
-    const btnSearch = document.getElementById('btn-search')
+    const { products } = await getProducts();
+    const categories = await getCategories();
+    console.log(categories);
+    createCard(products);
+    createNavItem(categories);
+
+
+    const btnSearch = document.getElementById('btn-search-product')
     btnSearch.addEventListener('click', async(e) => {
         e.preventDefault()
         const products = await search();
