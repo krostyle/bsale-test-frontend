@@ -32,11 +32,12 @@ const createCard = (products) => {
     const productList = document.getElementById('product-list')
     productList.innerHTML = '';
     products.forEach(element => {
+        const image = element.url_image !== '' ? element.url_image : 'https://via.placeholder.com/150'
         const div = document.createElement('div')
         div.classList.add('col-md-4')
         div.innerHTML += `
         <div class="card">
-            <img src="${element.url_image}" class="card-img-top" alt="...">
+            <img src="${image}" class="card-img-top" alt="imagen producto">
             <div class="card-body">
                 <h5 class="card-title">${element.name}</h5>
                 <p class="card-text">${formatPrice.format(element.price)}</p>
@@ -63,6 +64,8 @@ const createNavItem = (items) => {
 
 
 
+
+
 const search = async() => {
     const search = document.getElementById('input-search').value
     const { products } = await getProducts(search)
@@ -72,7 +75,6 @@ const search = async() => {
 const main = async() => {
     const { products } = await getProducts();
     const categories = await getCategories();
-    console.log(categories);
     createCard(products);
     createNavItem(categories);
 
