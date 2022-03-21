@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const TerserPlugin = require('terser-webpack-plugin');
+const path = require('path');
 
 module.exports = {
     mode: 'production',

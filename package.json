@@ -6,7 +6,7 @@
     "scripts": {
         "build": "webpack --config webpack.prod.js",
         "build:dev": "webpack --config webpack.config.js",
-        "serve": "webpack serve --config webpack.config.js --open --port 80s"
+        "serve": "webpack serve --config webpack.config.js --open --port 80"
     },
     "repository": {
         "type": "git",

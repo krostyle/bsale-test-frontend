@@ -12,7 +12,7 @@ const createPagination = (current, pages) => {
         pagination.appendChild(li)
 
         if (i === current) {
-            a.classList.add('active')
+            a.classList.add('disabled')
         }
     }
 }

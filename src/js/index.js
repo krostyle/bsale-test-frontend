@@ -4,8 +4,6 @@ import { createNavItem } from './components/Navbar'
 import { createPagination } from './components/Pagination'
 
 
-
-
 const search = async() => {
     const search = document.getElementById('input-search').value
     const { data } = await getProducts(search)
@@ -51,7 +49,6 @@ const main = async() => {
         }
     })
 }
-
 
 
 
