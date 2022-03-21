@@ -12,7 +12,6 @@ const search = async() => {
 
 const main = async() => {
     const { data } = await getProducts();
-    console.log(data);
     const categories = await getCategories();
     createCard(data.products)
     createNavItem(categories);
