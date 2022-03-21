@@ -11,4 +11,4 @@ const createNavItem = (items) => {
     })
 }
 
-module.export = { createNavItem }
+export { createNavItem }

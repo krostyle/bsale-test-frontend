@@ -1,0 +1,32 @@
+{
+    "name": "frontend",
+    "version": "1.0.0",
+    "description": "Página web que consume los servicisio de la API de productos.\r [API REST](https://api-bsale-server.herokuapp.com/api/v1/products)",
+    "main": "index.js",
+    "scripts": {
+        "build": "webpack --config webpack.prod.js",
+        "build:dev": "webpack --config webpack.config.js",
+        "serve": "webpack serve --config webpack.config.js --open --port 80s"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/krostyle/bsale-test-frontend.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/krostyle/bsale-test-frontend/issues"
+    },
+    "homepage": "https://github.com/krostyle/bsale-test-frontend#readme",
+    "devDependencies": {
+        "@babel/core": "^7.17.8",
+        "@babel/preset-env": "^7.16.11",
+        "babel-loader": "^8.2.3",
+        "html-loader": "^3.1.0",
+        "html-webpack-plugin": "^5.5.0",
+        "terser-webpack-plugin": "^5.3.1",
+        "webpack": "^5.70.0",
+        "webpack-cli": "^4.9.2",
+        "webpack-dev-server": "^4.7.4"
+    }
+}

@@ -4,4 +4,4 @@ const formatPrice = new Intl.NumberFormat('es-CL', {
     minimumFractionDigits: 0
 })
 
-module.export = { formatPrice }
+export { formatPrice }
