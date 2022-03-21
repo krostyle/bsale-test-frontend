@@ -17,7 +17,6 @@
     "bugs": {
         "url": "https://github.com/krostyle/bsale-test-frontend/issues"
     },
-    "homepage": "https://github.com/krostyle/bsale-test-frontend#readme",
     "devDependencies": {
         "@babel/core": "^7.17.8",
         "@babel/preset-env": "^7.16.11",
